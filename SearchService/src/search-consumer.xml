@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans        classpath:/org/springframework/beans/factory/xml/spring-beans-3.0.xsd
+	 http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">     
+
+	<dubbo:application name="search-consumer" />
+	<dubbo:registry address="zookeeper://192.168.116.100:2182?backup=192.168.116.100:2183,192.168.116.100:2184" />
+	<dubbo:reference id="searchService" interface="org.shirdrn.platform.dubbo.service.rpc.api.SolrSearchService" />
+
+</beans>

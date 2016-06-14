@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="SearchService"
+  id="myeclipse.1465868680195"
+  context-root="/SearchService"
+  j2ee-spec="5.0"
+  archive="SearchService.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
