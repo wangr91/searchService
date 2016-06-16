@@ -1,0 +1,5 @@
+projectKey=SearchService
+serverUrl=http://192.168.116.100:9090/sonarqube
+dashboardUrl=http://192.168.116.100:9090/sonarqube/dashboard/index/SearchService
+ceTaskId=AVVXRJzphBbBP_Ccv9oS
+ceTaskUrl=http://192.168.116.100:9090/sonarqube/api/ce/task?id=AVVXRJzphBbBP_Ccv9oS
