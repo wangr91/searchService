@@ -47,7 +47,8 @@
 
     <target name="war" depends="compile" description="打包war文件">
         <!-- linux 缺少包 -->
-        <copy file="/root/.jenkins/jobs/searchServiceDLCode/workspace/SearchService/src/*.xml" todir="/root/.jenkins/jobs/searchServiceDLCode/workspace/SearchService/build/classes"/>
+        <copy file="src/search-consumer.xml" todir="build/classes"/>
+    	<copy file="src/search-provider.xml" todir="build/classes"/>
         <war destfile="${build.war}/${web.name}.war">
             <fileset dir="${web.root}" includes="**/*.*" />
             <lib dir="${web.lib}" />
