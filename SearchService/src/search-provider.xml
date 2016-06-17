@@ -6,9 +6,9 @@
 	 http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">     
 	<dubbo:application name="search-provider" />
 	<dubbo:registry address="zookeeper://192.168.116.100:2182?backup=192.168.116.100:2183,192.168.116.100:2184" />
-	<dubbo:protocol name="dubbo" port="20880" />
+	<dubbo:protocol name="dubbo" port="20881" />
 	<bean id="searchService" class="org.shirdrn.platform.dubbo.service.rpc.server.SolrSearchServer">
-		<property name="baseUrl" value="http://nginx-lbserver/solr-cloud/" />
+		<property name="baseUrl" value="http://191.168.116.100:9527/" />
 	</bean>
 	<dubbo:service interface="org.shirdrn.platform.dubbo.service.rpc.api.SolrSearchService" ref="searchService" />
 
