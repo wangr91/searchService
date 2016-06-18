@@ -28,7 +28,11 @@
         </fileset>
        
     </path>
-	
+	<path id="JUnit4.classpath">
+	    <pathelement location="D:\myeclipseworkspace\cbss\SearchService\WebRoot\WEB-INF\lib\junit-4.10.jar"/>
+	   
+	</path>
+
     <target name="init"  depends="clean" description="初始化">
         <mkdir dir="${build.dir}" />
         <mkdir dir="${build.classes}" />
@@ -72,7 +76,13 @@
 	        <echo>清理完成！</echo>
 	    </target>
 
-	  
+      <target name="junit"  depends="compile" >
+             <junit printsummary="true">
+              
+               <classpath refid="JUnit4.classpath" />
+             	<test name="org.shirdrn.platform.dubbo.service.rpc.server.TestSolrSearchServer.testadd"></test>
+                 </junit>
+    </target>
 
 	<target name="all" depends="war" />
 </project>
