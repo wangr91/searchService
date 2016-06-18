@@ -1,26 +1,51 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*"%>
+<%!
+ public static final String DBDRIVER = "com.mysql.jdbc.Driver" ;
+ public static final String userName = "sonar";   
+ public static final String userPasswd = "sonar";  
+ public static final String dbName = "sonar";  
+ public static final String tableName="userinfo"; 
+ public static final String DBURL = "jdbc:mysql://192.168.116.100:3306/"+dbName+"?user="+userName+"&password="+userPasswd;
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'index.jsp' starting page</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-  </head>
+<%
+  Connection conn = null ;
+  PreparedStatement pstmt = null ;
+  ResultSet rs = null ;
+  boolean flag = false ; // 
+%>
+
+<%
+ String userid = request.getParameter("userid") ; 
+ String password = request.getParameter("password") ; 
+ try{
+   Class.forName(DBDRIVER) ;
+   conn = DriverManager.getConnection(DBURL) ;
+   String sql = "SELECT userid,password FROM userinfo WHERE userid=? AND password=?" ;
+   pstmt = conn.prepareStatement(sql) ;
+   pstmt.setString(1,userid) ;
+   pstmt.setString(2,password) ;
+   rs = pstmt.executeQuery() ;
+   while(rs.next()){
+   
+        flag = true ;
+  }
+ }catch(Exception e){
+ }finally{
+  try{
+   conn.close() ; 
+  }catch(Exception e){}
+ }
+%>
+<%
+ if(flag){ 
+%>
+  <jsp:forward page="success.jsp"/>
+<%
+ }else{  
+%> 
   
-  <body>
-    This is my JSP page. <br>
-  </body>
-</html>
+<%
+ }
+%>
