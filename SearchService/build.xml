@@ -81,7 +81,7 @@
 	   <junit printsummary="on" fork="true" showoutput="true"> 
 	    <classpath>
 	     <pathelement path="${build.classes}"/> 
-	     <pathelement path="${junit.dir}\commons-logging-1.0.4.jar"/> 
+	     <pathelement path="${junit.dir}\commons-logging.jar"/> 
 	     <pathelement path="${junit.dir}\httpclient-4.4.1.jar"/> 
 	     <pathelement path="${junit.dir}\httpcore-4.4.1.jar"/> 
 	    	
