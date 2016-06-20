@@ -4,6 +4,8 @@
     <property name="src.dir" location="src" />
     <!-- 构建目录 -->
     <property name="build.dir" location="build" />
+	 <!--JUNIT 目录-->
+	<property name="junit.dir" location="WebRoot\WEB-INF\lib" />
     <!-- class文件目录 -->
     <property name="build.classes" location="${build.dir}/classes" />
     <!-- 打包目录 -->
@@ -79,6 +81,10 @@
 	   <junit printsummary="on" fork="true" showoutput="true"> 
 	    <classpath>
 	     <pathelement path="${build.classes}"/> 
+	     <pathelement path="${junit.dir}\commons-logging-1.0.4.jar"/> 
+	     <pathelement path="${junit.dir}\httpclient-4.4.1.jar"/> 
+	     <pathelement path="${junit.dir}\httpcore-4.4.1.jar"/> 
+	    	
 	    </classpath> 
 	    <formatter type="plain" usefile="false"/>  
 	    	<test name="org.shirdrn.platform.dubbo.service.rpc.server.TestSolrSearchServer"></test>
