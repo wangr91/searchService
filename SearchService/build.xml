@@ -112,7 +112,7 @@
     			     <pathelement path="${junit.lib}\httpcore-4.4.1.jar"/> 
     			    	
     			    </classpath> 
-    			    <formatter type="plain" usefile="false"/>  
+    			    <formatter type="xml" usefile="on"/>  
     		    	<test name="org.shirdrn.platform.dubbo.service.rpc.server.TestSolrSearchServer"></test>
     			   </junit> 
     	        </jacoco:coverage>
